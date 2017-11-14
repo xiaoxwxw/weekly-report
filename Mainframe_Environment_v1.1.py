@@ -7,7 +7,7 @@ import matplotlib.dates as mdate
 from matplotlib.backends.backend_pdf import PdfPages
 
 def un_zip(zipfiledir,basedir,zipfilename,figdir):
-    #unzip zip file
+    #unzip zip file,create Image dir
     zip_file = zipfile.ZipFile(zipfiledir+'.zip')
     if os.path.isdir(zipfiledir):
         pass
@@ -75,7 +75,7 @@ ax1.xaxis.set_major_locator(mdate.HourLocator(interval=3))
 ax1.xaxis.set_major_formatter(mdate.DateFormatter('%Y-%m-%d %H:%M'))
 plt.xlabel('Time (Hour)')
 plt.ylabel('Temperature (°C)')
-plt.title('Mainframe Temperature')
+plt.title('Temperature')
 plt.grid(True)
 plt.savefig(figdir+'/'+file_name+"/Temperature.png")
 #主机Power图
@@ -94,7 +94,7 @@ ax2.xaxis.set_major_locator(mdate.HourLocator(interval=3))
 ax2.xaxis.set_major_formatter(mdate.DateFormatter('%Y-%m-%d %H:%M'))
 plt.xlabel('Time (Hour)')
 plt.ylabel('Power (KW)')
-plt.title('Mainframe Power')
+plt.title('Power')
 plt.grid(True)
 plt.savefig(figdir+'/'+file_name+"/Power.png")
 #主机CP utilization图
@@ -114,7 +114,7 @@ ax3.xaxis.set_major_formatter(mdate.DateFormatter('%Y-%m-%d %H:%M'))
 plt.xlabel('Time (Hour)')
 plt.ylabel('CPU utlization (%)')
 
-plt.title('Mainframe CPU utiliaztion')
+plt.title('CPU utiliaztion')
 plt.grid(True)
 
 plt.savefig(figdir+'/'+file_name+"/CPU_utlization.png")
